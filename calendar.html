@@ -27,32 +27,27 @@
     </header>
 
     <main>
-    <section id="task-manager">
-        <h3>Weekly Task Manager</h3>
+    <section id="calendar">
+        <h3>Upcoming Due Dates</h3>
 
-        <div class="task-input-area">
-            <input type="text" id="task-input" placeholder="Describe a task to do this week:">
-            <button id="add-task-btn" class="action-btn">
-                    Add Task
-            </button>
+        <div id="calendar-widget">
+            <p>Calendar widget display area.</p>
         </div>
 
-        <ul id="task-list">
-            <li class="task-item" data-task-id="1">
-                <span class="task-description">Example: Study for an hour</span>
-                <div class="task-actions">
-                    <button class="complete-btn action-btn">Complete</button>
-                    <button class="edit-btn action-btn">Edit</button>
-                    <button class="delete-btn action-btn">Delete</button>
-                </div>
-            </li>
-        </ul>
+        <form id="due-date-form">
+            <h4>Add New Assignment</h4>
+            <input type="text" id="assignment-name" placeholder="Course Name & Assignment" required>
+            <input type="date" id="due-date" required>
+            <button type="submit" id="add-assignment-btn">Add Due Date</button>
+        </form>
+
+        <ul id="assignment-list"></ul>
     </section>
     </main>
 
     <footer>CPAN 113 Group 2</footer>
 
     <script src="script.js"></script>
-
+    
 </body>
 </html>

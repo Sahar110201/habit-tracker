@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>group project draft</title>
 </head>
-<body>
+<body> 
     
     <header>
     <a id="logo" href="index.html">Insert Logo Here</a>
@@ -27,26 +27,19 @@
     </header>
 
     <main>
-    <section id="task-manager">
-        <h3>Weekly Task Manager</h3>
-
-        <div class="task-input-area">
-            <input type="text" id="task-input" placeholder="Describe a task to do this week:">
-            <button id="add-task-btn" class="action-btn">
-                    Add Task
-            </button>
+    <section id="timer">
+        <h3>Break Timer</h3>
+        <div id="timer-display">00:00</div>
+        <div id="timer-controls">
+            <button id="start-btn">Start</button>
+            <button id="pause-btn">Pause</button>
+            <button id="clean-btn">Reset</button> 
+            <div class="timer-increments">
+                <button id="add-5-btn">+5 min</button>
+                <button id="add-10-btn">+10 min</button>
+                <button id="add-20-btn">+20 min</button>
+            </div>
         </div>
-
-        <ul id="task-list">
-            <li class="task-item" data-task-id="1">
-                <span class="task-description">Example: Study for an hour</span>
-                <div class="task-actions">
-                    <button class="complete-btn action-btn">Complete</button>
-                    <button class="edit-btn action-btn">Edit</button>
-                    <button class="delete-btn action-btn">Delete</button>
-                </div>
-            </li>
-        </ul>
     </section>
     </main>
 
