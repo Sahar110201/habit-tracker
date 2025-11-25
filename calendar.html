@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="js/script.js"></script>
+     <script src="js/script.js"></script>
     <title>group project draft</title>
 </head>
 <body>
-    
+
     <header>
     <a id="logo" href="index.html">Insert Logo Here</a>
 
@@ -19,7 +19,7 @@
             <li><a href="timer.html">Timer</a></li>
             <li><a href="weather.html">Weather</a></li>
             <li><a href="motivation.html">Motivation</a></li>
-        
+
         </ul>
     </nav>
 
@@ -29,7 +29,18 @@
 
     <main>
     <section id="calendar">
+        <div id="calendar-grid">
+            
+        </div>
+        <div id="selected-date-info" style="display:none;">
+        <h2 id="selected-date-title"></h2>
+        <input type="text" id="selected-assignment-name" placeholder="Assignment for this date">
+        <button id="save-assignment-btn">Save Assignment</button>
+        <ul id="selected-assignment-list"></ul>
+</div>
+
         <h3>Upcoming Due Dates</h3>
+
 
         <div id="calendar-widget">
             <p>Calendar widget display area.</p>
@@ -49,6 +60,6 @@
     <footer>CPAN 113 Group 2</footer>
 
     <script src="js/script.js"></script>
-    
+
 </body>
 </html>
