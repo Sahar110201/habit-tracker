@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>group project draft</title>
+</head>
+<body>
+    
+    <header>
+    <a id="logo" href="index.html">Insert Logo Here</a>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Task Manager</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="timer.html">Timer</a></li>
+            <li><a href="weather.html">Weather</a></li>
+            <li><a href="motivation.html">Motivation</a></li>
+        
+        </ul>
+    </nav>
+
+    <button id="dark-mode-btn">Toggle Dark Mode</button>
+
+    </header>
+
+    <main>
+    <section id="calendar">
+        <h3>Upcoming Due Dates</h3>
+
+        <div id="calendar-widget">
+            <p>Calendar widget display area.</p>
+        </div>
+
+        <form id="due-date-form">
+            <h4>Add New Assignment</h4>
+            <input type="text" id="assignment-name" placeholder="Course Name & Assignment" required>
+            <input type="date" id="due-date" required>
+            <button type="submit" id="add-assignment-btn">Add Due Date</button>
+        </form>
+
+        <ul id="assignment-list"></ul>
+    </section>
+    </main>
+
+    <footer>CPAN 113 Group 2</footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
