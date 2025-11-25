@@ -4,17 +4,16 @@
     const dateInput = document.getElementById("due-date");
     const list = document.getElementById("assignment-list");
 
-    
-    let assignments = JSON.parse(localStorage.getItem("assignments")) || [];
+let assignments = JSON.parse(localStorage.getItem("assignments")) || [];
 
     
-    assignments.forEach(displayAssignment);
+assignments.forEach(displayAssignment);
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const name = nameInput.value.trim();
-        const date = dateInput.value;
+    const name = nameInput.value.trim();
+    const date = dateInput.value;
 
         if (!name || !date) {
             alert("Please enter both assignment name and due date.");
