@@ -11,7 +11,7 @@ let totalSeconds = 0;
 let timerInterval = null;
 
 // 🔊 Alarm sound (your uploaded file)
-const alarmSound = new Audio("sound/alarm-301729.mp3");
+const alarmSound = new Audio("assets/images/alarm-301729.mp3");
 alarmSound.preload = "auto";
 alarmSound.loop = false;   // 🔥 Make sure sound does NOT repeat
 
