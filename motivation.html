@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,26 +27,19 @@
     </header>
 
     <main>
-    <section id="task-manager">
-        <h3>Weekly Task Manager</h3>
-
-        <div class="task-input-area">
-            <input type="text" id="task-input" placeholder="Describe a task to do this week:">
-            <button id="add-task-btn" class="action-btn">
-                    Add Task
-            </button>
-        </div>
-
-        <ul id="task-list">
-            <li class="task-item" data-task-id="1">
-                <span class="task-description">Example: Study for an hour</span>
-                <div class="task-actions">
-                    <button class="complete-btn action-btn">Complete</button>
-                    <button class="edit-btn action-btn">Edit</button>
-                    <button class="delete-btn action-btn">Delete</button>
+    <section id="motivation">
+        <h3>Daily Motivation</h3>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p>Your motivation awaits..</p>
                 </div>
-            </li>
-        </ul>
+                <div class="flip-card-back">
+                    <p id="quote-text">Quote will appear here.</p>
+                </div>
+            </div>
+        </div>
+        <button id="generate-quote-btn">Generate</button>
     </section>
     </main>
 
