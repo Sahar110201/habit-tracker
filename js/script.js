@@ -1,4 +1,3 @@
-
     const form = document.getElementById("due-date-form");
     const nameInput = document.getElementById("assignment-name");
     const dateInput = document.getElementById("due-date");
