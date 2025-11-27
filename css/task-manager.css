@@ -14,6 +14,16 @@
     --color-text-primary: #332B34;
 }
 
+@font-face {
+    font-family: Schoolbell;
+    src: url(../assets/fonts/Schoolbell-Regular.ttf);
+}
+
+@font-face {
+    font-family: PollerOne;
+    src: url(../assets/fonts/PollerOne-Regular.ttf);
+}
+
 body.dark-mode {
     --color-background-primary: #1a1a1a;
     --color-surface-card: #222222;
@@ -22,7 +32,6 @@ body.dark-mode {
     --color-text-secondary: #a0a0a0;
     --color-accent: #285763;
 }
-
 
 * {
     box-sizing: border-box;
@@ -35,7 +44,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: ComingSoon, cursive;
     background-color: var(--color-background-primary);
     color: var(--color-text-primary);
     line-height: 1.6;
@@ -96,6 +105,7 @@ nav a:hover {
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
+    font-family: ComingSoon;
 }
 
 #dark-mode-btn:hover {
@@ -133,8 +143,10 @@ h3 {
     border-bottom: 2px solid var(--color-border-subtle);
     padding-bottom: 10px;
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--color-text-primary);
+    font-family: Schoolbell;/**/
+    text-align: center;
 }
 
 #add-task-btn {
@@ -146,6 +158,7 @@ h3 {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.5s;
+    font-family: ComingSoon;
 }
 
 #add-task-btn:hover {
@@ -163,6 +176,7 @@ h3 {
     font-size: 0.9rem;
     transition: background-color 0.5s;
     box-shadow: 3px 3px 4px rgb(189, 188, 188);
+    font-family: ComingSoon;
 }
 
 .complete-btn:hover {
@@ -181,6 +195,7 @@ h3 {
     font-size: 0.9rem;
     transition: background-color 0.5s;
     box-shadow: 3px 3px 4px rgb(189, 188, 188);
+    font-family: ComingSoon;
 }
 
 .edit-btn:hover {
@@ -199,6 +214,7 @@ h3 {
     font-size: 0.9rem;
     transition: background-color 0.5s;
     box-shadow: 3px 3px 4px rgb(189, 188, 188);
+    font-family: ComingSoon;
 }
 
 .delete-btn:hover {
@@ -218,11 +234,13 @@ h3 {
     background-color: var(--color-task-list);
     color: var(--color-text-primary);
     transition: background-color 0.3s, border-color 0.3s;
+    font-family: ComingSoon;
 }
 
 .task-input-area {
     display: flex;
     margin-bottom: 20px;
+    font-family: ComingSoon;
 }
 
 #task-list {
