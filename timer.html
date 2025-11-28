@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/timer.css">
-    <title>group project draft</title>
+    <title>Habit Tracker</title>
 </head>
-<body> 
-    
+
+<body>
+
     <header>
-    <a id="logo" href="index.html">Insert Logo Here</a>
+        <a id="logo" href="index.html"> <img id="logoimage" src="assets/images/logo.png" alt="Logo"></a>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Task Manager</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="timer.html">Timer</a></li>
-            <li><a href="weather.html">Weather</a></li>
-            <li><a href="motivation.html">Motivation</a></li>
-        
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Task Manager</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="timer.html">Timer</a></li>
+                <li><a href="weather.html">Weather</a></li>
+                <li><a href="motivation.html">Motivation</a></li>
 
-    <button id="dark-mode-btn">Toggle Dark Mode</button>
+            </ul>
+        </nav>
+
+        <button id="dark-mode-btn">Toggle Dark Mode</button>
 
     </header>
 
     <main>
-    <section id="timer">
-        <h3>Break Timer</h3>
-        <div id="timer-display">00:00</div>
-        <div id="timer-controls">
-            <button id="start-btn">Start</button>
-            <button id="pause-btn">Pause</button>
-            <button id="clean-btn">Reset</button> 
+        <section id="timer">
+            <h3>Break Timer</h3>
+            <div class="timer-container">
+                <div class="flip-card" id="minutes-flip">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">00</div>
+                        <div class="flip-card-back">00</div>
+                    </div>
+                </div>
+                <div class="flip-separator">:</div>
+                <div class="flip-card" id="seconds-flip">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">00</div>
+                        <div class="flip-card-back">00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="timer-controls">
+                <button id="start-btn">Start</button>
+                <button id="pause-btn">Pause</button>
+                <button id="reset-btn">Reset</button>
+            </div>
             <div class="timer-increments">
                 <button id="add-5-btn">+5 min</button>
                 <button id="add-10-btn">+10 min</button>
                 <button id="add-20-btn">+20 min</button>
             </div>
-        </div>
-    </section>
+        </section>
     </main>
 
     <footer>CPAN 113 Group 2</footer>
@@ -48,4 +64,5 @@
     <script src="js/timer.js"></script>
 
 </body>
+
 </html>

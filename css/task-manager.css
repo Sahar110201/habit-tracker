@@ -20,8 +20,8 @@
 }
 
 @font-face {
-    font-family: PollerOne;
-    src: url(../assets/fonts/PollerOne-Regular.ttf);
+    font-family: ComingSoon;
+    src: url(../assets/fonts/ComingSoon-Regular.ttf);
 }
 
 body.dark-mode {
@@ -145,7 +145,7 @@ h3 {
     margin-bottom: 15px;
     font-size: 1.5rem;
     color: var(--color-text-primary);
-    font-family: Schoolbell;/**/
+    font-family: Schoolbell;
     text-align: center;
 }
 

@@ -1,76 +1,127 @@
 // ----- TIMER -----
-let timerDisplay = document.getElementById('timer-display');
 let startBtn = document.getElementById('start-btn');
 let pauseBtn = document.getElementById('pause-btn');
-let resetBtn = document.getElementById('clean-btn');
+let resetBtn = document.getElementById('reset-btn');
 let add5Btn = document.getElementById('add-5-btn');
 let add10Btn = document.getElementById('add-10-btn');
 let add20Btn = document.getElementById('add-20-btn');
 
+let minutesFlip = document.getElementById('minutes-flip');
+let secondsFlip = document.getElementById('seconds-flip');
+
 let totalSeconds = 0;
 let timerInterval = null;
+let flipRunning = false;
 
-// 🔊 Alarm sound (your uploaded file)
+// 🔊 Alarm sound (ensure file exists at this path)
 const alarmSound = new Audio("assets/images/alarm-301729.mp3");
 alarmSound.preload = "auto";
-alarmSound.loop = false;   // 🔥 Make sure sound does NOT repeat
+alarmSound.loop = false;
 
-// Update display
+
+// Helper function to animate flip
+function animateFlip(element, newValue) {
+    element.classList.add('flipping');
+    setTimeout(() => {
+        element.classList.remove('flipping');
+        element.querySelector('.flip-card-front').textContent = newValue;
+    }, 300);
+}
+
+// Update display 
 function updateDisplay() {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
-    timerDisplay.textContent =
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    let minutesStr = minutes.toString().padStart(2, '0');
+    let secondsStr = seconds.toString().padStart(2, '0');
+
+    minutesFlip.querySelector('.flip-card-front').textContent = minutesStr;
+    secondsFlip.querySelector('.flip-card-front').textContent = secondsStr;
 }
 
 // Start Timer
 startBtn.addEventListener('click', () => {
+    if (flipRunning) return;
 
-    // 🔥 OPTION 2: stop/reset alarm when starting new timer
-    alarmSound.pause();
-    alarmSound.currentTime = 0;
+    if (totalSeconds === 0) {
+        alert('Please set a time using the +5, +10, or +20 min buttons!');
+        return;
+    }
 
-    if (timerInterval) return;
+    flipRunning = true;
+    startBtn.disabled = true;
 
     timerInterval = setInterval(() => {
         if (totalSeconds > 0) {
             totalSeconds--;
             updateDisplay();
+
+            // Animate flip when second changes
+            if (totalSeconds % 60 === 59) {
+                animateFlip(secondsFlip, (totalSeconds % 60).toString().padStart(2, '0'));
+            }
+            if (totalSeconds % 60 === 0) {
+                animateFlip(minutesFlip, (Math.floor(totalSeconds / 60)).toString().padStart(2, '0'));
+            }
+            if (totalSeconds === 0) {
+                animateFlip(minutesFlip, '00');
+            }
         } else {
             clearInterval(timerInterval);
-            timerInterval = null;
-
-            // 🔊 Play alarm once
+            flipRunning = false;
+            startBtn.disabled = false;
             alarmSound.play().catch(err => console.log("Audio error:", err));
 
-            alert("Time's up!");
         }
     }, 1000);
 });
 
 // Pause
 pauseBtn.addEventListener('click', () => {
-    clearInterval(timerInterval);
-    timerInterval = null;
+    if (flipRunning) {
+        clearInterval(timerInterval);
+        flipRunning = false;
+        startBtn.disabled = false;
+    }
 });
 
 // Reset
 resetBtn.addEventListener('click', () => {
     clearInterval(timerInterval);
+    flipRunning = false;
     timerInterval = null;
     totalSeconds = 0;
+    startBtn.disabled = false;
 
     // 🔥 Stop the alarm if it's still playing
-    alarmSound.pause(5);
-    alarmSound.currentTime = 5;
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
 
     updateDisplay();
 });
 
 // Time increment buttons
-add5Btn.addEventListener('click', () => { totalSeconds += 5 * 60; updateDisplay(); });
-add10Btn.addEventListener('click', () => { totalSeconds += 10 * 60; updateDisplay(); });
-add20Btn.addEventListener('click', () => { totalSeconds += 20 * 60; updateDisplay(); });
+add5Btn.addEventListener('click', () => {
+    if (!flipRunning) {
+        totalSeconds = 5 * 60;
+        updateDisplay();
+    }
+});
+
+add10Btn.addEventListener('click', () => {
+    if (!flipRunning) {
+        totalSeconds = 10 * 60;
+        updateDisplay();
+    }
+});
+
+add20Btn.addEventListener('click', () => {
+    if (!flipRunning) {
+        totalSeconds = 20 * 60; 
+        updateDisplay();
+    }
+});
 
 // Initialize display
 updateDisplay();
