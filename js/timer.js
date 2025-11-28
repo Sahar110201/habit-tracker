@@ -125,3 +125,4 @@ add20Btn.addEventListener('click', () => {
 
 // Initialize display
 updateDisplay();
+
