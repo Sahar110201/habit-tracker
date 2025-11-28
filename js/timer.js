@@ -74,3 +74,4 @@ add20Btn.addEventListener('click', () => { totalSeconds += 20 * 60; updateDispla
 
 // Initialize display
 updateDisplay();
+
