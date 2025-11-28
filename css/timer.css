@@ -1,11 +1,28 @@
 :root {
     --color-background-primary: #ececec;
-    --color-surface-card: #f5f5f5;
-    --color-border-subtle: #e0e0e0;
-    --color-text-primary: #333333;
-    --color-text-secondary: #777777;
-    --color-accent: #357686;
-    --border-radius-section: 12px;
+    --header-footer: #73b0c6;
+    --color-timer-section: #d6f0f8;
+    --color-toggle-btn: #ececec;
+    --color-toggle-btn-hover: #357686;
+    --color-flip-card: #fff9f1;
+    --color-timer-controls-hover: #357686;
+    --color-timer-increments-hover: #357686;
+    --color-timer-controls-btn: #78a4b4;
+    --color-timer-increments-btn: #9ABFCD;
+    --color-border-subtle: #332B34;
+    --color-border-btn-controls-increments: #446673;
+    --color-text-hover: #ececec;
+    --color-text-primary: #332B34;
+}
+
+@font-face {
+    font-family: Schoolbell;
+    src: url(../assets/fonts/Schoolbell-Regular.ttf);
+}
+
+@font-face {
+    font-family: ComingSoon;
+    src: url(../assets/fonts/ComingSoon-Regular.ttf);
 }
 
 body.dark-mode {
@@ -28,7 +45,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: ComingSoon, cursive;
     background-color: var(--color-background-primary);
     color: var(--color-text-primary);
     line-height: 1.6;
@@ -36,8 +53,7 @@ body {
 }
 
 header {
-    background-color: var(--color-surface-card);
-    border-bottom: 1px solid var(--color-border-subtle);
+    background-color: var(--header-footer);
     padding: 20px 80px;
     position: fixed;
     top: 0;
@@ -48,20 +64,18 @@ header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    transition: background-color 0.3s, border-color 0.3s;
 }
 
-#logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-accent);
+#logoimage {
+    width: 45%;
+    height: auto;
 }
 
 nav {
     justify-content: center;
     align-items: center;
     flex: 1;
-    display: flex; 
+    display: flex;
 }
 
 nav ul {
@@ -75,26 +89,44 @@ nav a {
     text-decoration: none;
     color: var(--color-text-primary);
     padding: 5px 10px;
-    transition: color 0.2s;
+    transition: ease 0.7s;
 }
 
 nav a:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
+    color: var(--color-text-hover);
 }
 
 #dark-mode-btn {
     justify-self: end;
+    color: var(--color-text-primary);
+    background-color: var(--color-toggle-btn);
+    box-shadow: 5px 5px 10px rgb(76, 76, 76);
+    transition: ease-in-out 1s;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: ComingSoon;
+}
+
+#dark-mode-btn:hover {
+    justify-self: end;
+    background-color: var(--color-toggle-btn-hover);
+    color: var(--color-text-hover);
+    transition: ease-in-out 1s;
+    box-shadow: none;
 }
 
 main {
-    padding: 180px 20px 40px;
+    padding: 140px 20px 140px;
     display: flex;
     justify-content: center;
 }
 
 section {
-    background-color: var(--color-surface-card);
+    background-color: var(--color-timer-section);
+    border: 1px solid var(--color-border-subtle);
     padding: 50px;
     width: 100%;
     max-width: 1200px;
@@ -113,60 +145,133 @@ h3 {
     border-bottom: 2px solid var(--color-border-subtle);
     padding-bottom: 10px;
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--color-text-primary);
-    transition: border-color 0.3s;
+    font-family: Schoolbell;
+    text-align: center;
 }
 
-button {
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
+.timer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    perspective: 1000px;
+}
+
+.flip-card{
+    position: relative;
+    width: 120px;
+    height: 160px;
+    cursor: pointer;
+}
+
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+}
+
+.flip-card.flipping .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+.flip-separator{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--color-text-primary);
+    margin: 0 10px;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 3px solid var(--color-accent);
+    background: var(--color-flip-card);
+    color: var(--color-text-primary);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-back {
+    transform: rotateX(180deg);
+}
+
+.timer-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.timer-controls button {
+    background-color: var(--color-timer-controls-btn);
+    color: var(--color-text-primary);
+    font-family: ComingSoon, cursive;
+    border: 1px solid var(--color-border-btn-controls-increments);
+    box-shadow: 3px 3px 4px rgb(189, 188, 188);
     padding: 8px 15px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: background-color 0.2s, opacity 0.2s;
+    transition: background-color 0.5s, transform 1s;
 }
 
-button:hover {
-    background-color: #3d889b;
+.timer-controls button:hover {
+    background-color: var(--color-timer-controls-hover);
+    color: var(--color-text-hover);
+    transform: translateY(-2px);
+    box-shadow: none;
 }
 
-#task-manager input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 6px;
-    font-size: 1rem;
-    margin-right: 10px;
-    background-color: var(--color-surface-card);
-    color: var(--color-text-primary);
-    transition: background-color 0.3s, border-color 0.3s;
+.timer-controls button:active {
+    transform: translateY(0);
 }
 
-.task-input-area {
+.timer-increments{
     display: flex;
-    margin-bottom: 20px;
-}
-
-#task-list {
-    list-style: none;
-    padding: 0;
-}
-
-.task-item {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--color-border-subtle);
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
 }
 
-.task-actions button {
-    margin-left: 5px;
-    padding: 5px 10px;
-    font-size: 0.8rem;
+.timer-increments button {
+    background-color: var(--color-timer-increments-btn);
+    color: var(--color-text-primary);
+    font-family: ComingSoon, cursive;
+    border: 1px solid var(--color-border-btn-controls-increments);
+    box-shadow: 3px 3px 4px rgb(189, 188, 188);
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.5s, transform 1s;;
+}
+
+.timer-increments button:hover {
+    background-color: var(--color-timer-increments-hover);
+    color: var(--color-text-hover);
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+.timer-increments button:active{
+    transform: translateY(0);
 }
 
 #timer-display {
@@ -187,89 +292,7 @@ button:hover {
     gap: 10px;
 }
 
-.timer-increments button {
-    background-color: var(--color-text-secondary);;
-}
 
-.timer-increments button:hover {
-    background-color: #868686;
-}
-
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 180px;
-    perspective: 1000px;
-    margin: 20px auto;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-section);
-}
-
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: var(--border-radius-section);
-}
-
-.flip-card-front {
-    background-color: var(--color-accent);
-    color: white;
-    font-weight: bold;
-}
-
-.flip-card-back {
-    background-color: var(--color-accent);
-    color: var(--color-text-primary);
-    transform: rotateY(180deg);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#generate-quote-btn {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-}
-
-#due-date-form input[type="text"],
-#due-date-form input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 6px;
-    background-color: var(--color-surface-card);
-    color: var(--color-text-primary);
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-#calendar-widget {
-    min-height: 150px;
-    padding: 10px;
-    background-color: var(--color-background-primary);
-    border-radius: 6px;
-    margin-bottom: 20px;
-    transition: background-color 0.3s;
-}
 
 footer {
     text-align: center;
@@ -279,11 +302,10 @@ footer {
     left: 0;
     padding: 40px;
     margin-top: 30px;
-    border-top: 1px solid var(--color-border-subtle);
     color: var(--color-text-secondary);
     font-size: 0.9rem;
     transition: border-color 0.3s, color 0.3s;
-    background-color: var(--color-surface-card);
+    background-color: var(--header-footer);
 }
 
 @media (max-width: 700px) {
