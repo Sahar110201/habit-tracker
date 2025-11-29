@@ -14,6 +14,22 @@
     --color-text-hover: #ececec;
     --color-text-primary: #332B34;
 }
+body.dark-mode {
+    --color-background-primary: #1a1a1a;
+    --header-footer: #0f4c5c;
+    --color-timer-section: #1f1f1f;
+    --color-toggle-btn: #2b2b2b;
+    --color-toggle-btn-hover: #357686;
+    --color-flip-card: #2a2a2a;
+    --color-timer-controls-btn: #2e5966;
+    --color-timer-increments-btn: #3b7080;
+    --color-border-subtle: #555;
+    --color-border-btn-controls-increments: #577c8a;
+    --color-text-primary: #f0f0f0;
+    --color-text-hover: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-accent: #3ba4bd;
+}
 
 @font-face {
     font-family: Schoolbell;
@@ -358,3 +374,68 @@ footer {
         font-size: 2.5rem;
     }
 }
+
+
+
+
+/* Dark mode: section backgrounds */
+body.dark-mode section {
+    background-color: var(--color-timer-section);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode: header + footer */
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: var(--header-footer);
+    color: var(--color-text-primary);
+}
+
+/* Dark mode: navigation links */
+body.dark-mode nav a {
+    color: var(--color-text-primary);
+}
+
+body.dark-mode nav a:hover {
+    color: var(--color-text-hover);
+}
+
+/* Dark mode: flip cards */
+body.dark-mode .flip-card-front,
+body.dark-mode .flip-card-back {
+    background: var(--color-flip-card);
+    border-color: var(--color-accent);
+    color: var(--color-text-primary);
+}
+
+/* Dark mode: timer display */
+body.dark-mode #timer-display {
+    background-color: #262626;
+    color: var(--color-text-primary);
+}
+
+/* Dark mode: control buttons */
+body.dark-mode .timer-controls button,
+body.dark-mode .timer-increments button {
+    background-color: var(--color-timer-controls-btn);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-btn-controls-increments);
+}
+
+body.dark-mode .timer-controls button:hover,
+body.dark-mode .timer-increments button:hover {
+    background-color: var(--color-timer-controls-hover);
+    color: var(--color-text-hover);
+}
+
+/* Dark mode toggle button */
+body.dark-mode #dark-mode-btn {
+    background-color: var(--color-toggle-btn);
+    color: var(--color-text-primary);
+}
+
+body.dark-mode #dark-mode-btn:hover {
+    background-color: var(--color-toggle-btn-hover);
+    color: var(--color-text-hover);
+}
+

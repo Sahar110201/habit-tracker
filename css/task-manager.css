@@ -332,3 +332,59 @@ footer {
         gap: 6px;
     }
 }
+
+
+
+
+
+
+
+/* DARK MODE OVERRIDES */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode section,
+body.dark-mode #task-list,
+body.dark-mode #task-manager input[type="text"] {
+    background-color: #222222;
+    color: #e0e0e0;
+    border-color: #555555;
+}
+
+body.dark-mode nav a,
+body.dark-mode #dark-mode-btn,
+body.dark-mode button,
+body.dark-mode .complete-btn,
+body.dark-mode .edit-btn,
+body.dark-mode .delete-btn,
+body.dark-mode #add-task-btn {
+    color: #e0e0e0;
+}
+
+body.dark-mode #dark-mode-btn {
+    background-color: #444444;
+}
+
+body.dark-mode #dark-mode-btn:hover,
+body.dark-mode button:hover,
+body.dark-mode .complete-btn:hover,
+body.dark-mode .edit-btn:hover,
+body.dark-mode .delete-btn:hover,
+body.dark-mode #add-task-btn:hover {
+    background-color: #3aa1bf;
+    color: #ffffff;
+}
+
+body.dark-mode .task-item {
+    border-bottom: 1px solid #555555;
+}
+
+body.dark-mode #task-manager input[type="text"] {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: inset 0 0 4px #000000;
+}
