@@ -1,32 +1,24 @@
-// ---- DARK MODE TOGGLE ---- //
-const darkModeBtn = document.getElementById("dark-mode-btn");
+// ---- DARK MODE TOGGLE (click-only but persistent) ---- //
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeBtn = document.getElementById("dark-mode-btn");
 
-// Toggle dark mode when button is clicked
-darkModeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-
-    // Save preference
-    if (document.body.classList.contains("dark")) {
-        localStorage.setItem("darkMode", "enabled");
-    } else {
-        localStorage.setItem("darkMode", "disabled");
+    // ONLY apply dark mode if it was intentionally enabled before
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "enabled") {
+        document.body.classList.add("dark-mode");
     }
-});
-// ---- END DARK MODE TOGGLE ---- //
 
-// ---- DARK MODE TOGGLE ---- //
-document.getElementById("dark-mode-btn").addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-});
-// Toggle dark mode when button clicked
-darkModeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
 
-    // Save preference
-    if (document.body.classList.contains("dark")) {
-        localStorage.setItem("darkMode", "enabled");
-    } else {
-        localStorage.setItem("darkMode", "disabled");
+            // Save user choice
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+            }
+        });
     }
 });
 // ---- END DARK MODE TOGGLE ---- //
