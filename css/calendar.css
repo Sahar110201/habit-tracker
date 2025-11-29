@@ -50,10 +50,9 @@ header {
     align-items: center;
 }
 
-#logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-accent);
+#logoimage {
+    width: 45%;
+    height: auto;
 }
 
 nav {
@@ -86,7 +85,7 @@ nav a:hover {
 }
 
 main {
-    padding: 180px 20px 40px;
+    padding: 150px 20px 140px;
     display: flex;
     justify-content: center;
 }
