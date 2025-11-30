@@ -15,20 +15,19 @@
     --color-text-primary: #332B34;
 }
 body.dark-mode {
-    --color-background-primary: #1a1a1a;
-    --header-footer: #0f4c5c;
-    --color-timer-section: #1f1f1f;
-    --color-toggle-btn: #2b2b2b;
-    --color-toggle-btn-hover: #357686;
-    --color-flip-card: #2a2a2a;
-    --color-timer-controls-btn: #2e5966;
-    --color-timer-increments-btn: #3b7080;
-    --color-border-subtle: #555;
-    --color-border-btn-controls-increments: #577c8a;
-    --color-text-primary: #f0f0f0;
-    --color-text-hover: #ffffff;
-    --color-text-secondary: #cccccc;
-    --color-accent: #3ba4bd;
+    --color-background-primary:#04042b;
+    --header-footer: #232339;
+    --color-timer-section: #353553;
+    --color-toggle-btn: #1b1754;
+    --color-toggle-btn-hover: #2d83bb;
+    --color-flip-card: #22227a;
+    --color-timer-controls-increments-hover: #2d83bb;
+    --color-timer-controls-btn: #3f3a87;
+    --color-timer-increments-btn: #23204c;
+    --color-border-subtle:#7aa7c5;
+    --color-border-btn-controls-increments: #f8fdff;
+    --color-text-hover: #6a5fff;
+    --color-text-primary:#ececec;
 }
 
 @font-face {
@@ -39,15 +38,6 @@ body.dark-mode {
 @font-face {
     font-family: ComingSoon;
     src: url(../assets/fonts/ComingSoon-Regular.ttf);
-}
-
-body.dark-mode {
-    --color-background-primary: #1a1a1a;
-    --color-surface-card: #222222;
-    --color-border-subtle: #333333;
-    --color-text-primary: #e0e0e0;
-    --color-text-secondary: #a0a0a0;
-    --color-accent: #285763;
 }
 
 * {
@@ -148,7 +138,7 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     min-height: 500px;
-    border-radius: var(--border-radius-section);
+    border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out, background-color 0.3s, box-shadow 0.3s;
 }
@@ -214,7 +204,7 @@ h3 {
     justify-content: center;
     font-size: 4rem;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 6px;
     border: 3px solid var(--color-accent);
     background: var(--color-flip-card);
     color: var(--color-text-primary);
@@ -290,25 +280,12 @@ h3 {
     transform: translateY(0);
 }
 
-#timer-display {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-    background-color: var(--color-background-primary);
-    padding: 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
 #timer-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
-
-
 
 footer {
     text-align: center;
@@ -379,9 +356,19 @@ footer {
 
 
 /* Dark mode: section backgrounds */
-body.dark-mode section {
+body.dark-mode {
+    background-color: var(--color-background-primary);
+}
+
+body.dark-mode #timer {
     background-color: var(--color-timer-section);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border-subtle);
+}
+
+body.dark-mode #logoimage {
+    width: 45%;
+    height: auto;
+    filter: brightness(0) invert(1);
 }
 
 /* Dark mode: header + footer */
@@ -400,42 +387,47 @@ body.dark-mode nav a:hover {
     color: var(--color-text-hover);
 }
 
+body.dark-mode #timer h3{
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
 /* Dark mode: flip cards */
 body.dark-mode .flip-card-front,
 body.dark-mode .flip-card-back {
     background: var(--color-flip-card);
-    border-color: var(--color-accent);
+    border: 1px solid var(--color-border-subtle);
     color: var(--color-text-primary);
 }
 
-/* Dark mode: timer display */
-body.dark-mode #timer-display {
-    background-color: #262626;
-    color: var(--color-text-primary);
-}
-
-/* Dark mode: control buttons */
-body.dark-mode .timer-controls button,
-body.dark-mode .timer-increments button {
+/* Dark mode: control and increments buttons */
+body.dark-mode .timer-controls button {
     background-color: var(--color-timer-controls-btn);
     color: var(--color-text-primary);
-    border-color: var(--color-border-btn-controls-increments);
+    border: 1px solid var(--color-border-btn-controls-increments);
+    box-shadow: 0 0 8px white;
+}
+
+body.dark-mode .timer-increments button {
+    background-color: var(--color-timer-increments-btn);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-btn-controls-increments);
+    box-shadow: 0 0 8px white;
 }
 
 body.dark-mode .timer-controls button:hover,
 body.dark-mode .timer-increments button:hover {
-    background-color: var(--color-timer-controls-hover);
-    color: var(--color-text-hover);
+    background-color: var(--color-timer-controls-increments-hover);
+    box-shadow: none;
 }
 
 /* Dark mode toggle button */
 body.dark-mode #dark-mode-btn {
     background-color: var(--color-toggle-btn);
-    color: var(--color-text-primary);
+    box-shadow: none;
 }
 
 body.dark-mode #dark-mode-btn:hover {
     background-color: var(--color-toggle-btn-hover);
-    color: var(--color-text-hover);
+    color: var(--color-text-primary);
+    box-shadow: 0 0 15px white;
 }
-

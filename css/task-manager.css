@@ -25,12 +25,19 @@
 }
 
 body.dark-mode {
-    --color-background-primary: #1a1a1a;
-    --color-surface-card: #222222;
-    --color-border-subtle: #333333;
-    --color-text-primary: #e0e0e0;
-    --color-text-secondary: #a0a0a0;
-    --color-accent: #285763;
+    --color-background-primary: #04042b;
+    --header-footer: #232339;
+    --color-task-list: #04042b;
+    --color-task-manager-section: #353553;
+    --color-toggle-btn: #1b1754;
+    --color-all-btn-hover: #2d83bb;
+    --color-add-task-btn: #1b1754;
+    --color-complete-btn: #3f3a87;
+    --color-edit-btn: #34306c;
+    --color-delete-btn: #23204c;
+    --color-border-subtle: #7aa7c5;
+    --color-text-hover: #6a5fff;
+    --color-text-primary: #dbdada;
 }
 
 * {
@@ -333,58 +340,87 @@ footer {
     }
 }
 
-
-
-
-
-
-
 /* DARK MODE OVERRIDES */
 body.dark-mode {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    background-color: var(--color-background-primary);
+}
+
+body.dark-mode #logoimage {
+    width: 45%;
+    height: auto;
+    filter: brightness(0) invert(1);
 }
 
 body.dark-mode header,
-body.dark-mode footer,
-body.dark-mode section,
-body.dark-mode #task-list,
-body.dark-mode #task-manager input[type="text"] {
-    background-color: #222222;
-    color: #e0e0e0;
-    border-color: #555555;
+body.dark-mode footer {
+    background-color: var(--header-footer);
+    color: var(--color-text-primary);
 }
 
-body.dark-mode nav a,
-body.dark-mode #dark-mode-btn,
-body.dark-mode button,
-body.dark-mode .complete-btn,
-body.dark-mode .edit-btn,
-body.dark-mode .delete-btn,
-body.dark-mode #add-task-btn {
-    color: #e0e0e0;
+body.dark-mode #task-manager {
+    background-color: var(--color-task-manager-section);;
+}
+
+body.dark-mode #task-list,
+body.dark-mode #task-manager input[type="text"]{
+    background-color: var(--color-task-list);
+    color: var(--color-text-primary);
+}
+
+body.dark-mode nav a {
+    color: var(--color-text-primary);
+}
+
+body.dark-mode nav a:hover {
+    color: var(--color-text-hover);
 }
 
 body.dark-mode #dark-mode-btn {
-    background-color: #444444;
+    background-color: var(--color-toggle-btn);
+    box-shadow: none;
 }
 
-body.dark-mode #dark-mode-btn:hover,
-body.dark-mode button:hover,
+body.dark-mode #dark-mode-btn:hover {
+    background-color: var(--color-all-btn-hover);
+    color: var(--color-text-primary);
+    box-shadow: 0 0 15px white;
+}
+
+body.dark-mode .complete-btn {
+    color: var(--color-text-primary);
+    background-color: var(--color-complete-btn);
+    box-shadow: 0 0 5px rgb(121, 228, 255);
+}
+
+body.dark-mode #add-task-btn {
+    color: var(--color-text-primary);
+    background-color: var(--color-add-task-btn);
+    box-shadow: 0 0 7px rgb(121, 228, 255);
+}
+
+body.dark-mode .delete-btn {
+    color: var(--color-text-primary);
+    background-color: var(--color-delete-btn);
+    box-shadow: 0 0 5px rgb(121, 228, 255);
+}
+
+body.dark-mode .edit-btn{
+    color: var(--color-text-primary);
+    background-color: var(--color-edit-btn);
+    box-shadow: 0 0 5px rgb(121, 228, 255);
+}
+
 body.dark-mode .complete-btn:hover,
 body.dark-mode .edit-btn:hover,
 body.dark-mode .delete-btn:hover,
 body.dark-mode #add-task-btn:hover {
-    background-color: #3aa1bf;
-    color: #ffffff;
+    background-color: var(--color-all-btn-hover);
 }
 
 body.dark-mode .task-item {
-    border-bottom: 1px solid #555555;
+    border-bottom: 1px solid var(--color-border-subtle);
 }
 
-body.dark-mode #task-manager input[type="text"] {
-    background-color: #333333;
-    color: #ffffff;
-    box-shadow: inset 0 0 4px #000000;
-}
+
+
+
