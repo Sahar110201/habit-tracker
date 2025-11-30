@@ -108,5 +108,5 @@ makeCalendar(today.getFullYear(), today.getMonth(), assignments);
 
 
 
-}
+
 
