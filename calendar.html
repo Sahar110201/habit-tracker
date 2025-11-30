@@ -10,7 +10,7 @@
 <body>
 
     <header>
-    <a id="logo" href="index.html"> <img id="logoimage" src="assets/images/logo.png" alt="Logo"></a>
+    <a id="logo" href="index.html">Insert Logo Here</a>
 
     <nav>
         <ul>
@@ -41,10 +41,19 @@
 
         <h3>Upcoming Due Dates</h3>
 
-
+        
         <div id="calendar-widget">
-            <p>Calendar widget display area.</p>
-        </div>
+        <table id="calendar-table">
+        <thead>
+        <tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+        <th>Thu</th><th>Fri</th><th>Sat</th>
+        </tr>
+        </thead>
+        <tbody id="calendar-body"></tbody>
+        </table>
+</div>
+
 
         <form id="due-date-form">
             <h4>Add New Assignment</h4>
@@ -60,7 +69,6 @@
     <footer>CPAN 113 Group 2</footer>
 
     <script src="js/script.js"></script>
-    <script src="js/dark mode.js"></script>
 
 </body>
 </html>
