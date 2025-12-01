@@ -10,47 +10,51 @@
     assignments.forEach(displayAssignment);
     
     form.addEventListener("submit", (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        const name = nameInput.value.trim();
-        const date = dateInput.value;
+    const name = nameInput.value.trim();
+    const date = dateInput.value;
 
-        if (!name || !date) {
-            alert("Please enter both assignment name and due date.");
-            return;
-        }
+    if (!name || !date) {
+        alert("Please enter both assignment name and due date.");
+        return;
+    }
 
-        const assignment = { name, date };
-        assignments.push(assignment);
+    const assignment = { name, date };
+    assignments.push(assignment);
 
-        localStorage.setItem("assignments", JSON.stringify(assignments));
+    localStorage.setItem("assignments", JSON.stringify(assignments));
 
-        displayAssignment(assignment);
+    displayAssignment(assignment);
+    makeCalendar(today.getFullYear(), today.getMonth(), assignments); 
 
-        nameInput.value = "";
-        dateInput.value = "";
-    });
+    nameInput.value = "";
+    dateInput.value = "";
+});
+
 
     
-    function displayAssignment({ name, date }) {
-        const entry = document.createElement("li");
-        entry.textContent = `${name} — Due: ${new Date(date).toLocaleDateString()}`;
-        
-    
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    removeBtn.style.marginLeft = "10px";
-    removeBtn.addEventListener("click", () => {
-        
-        list.removeChild(entry);
+  function displayAssignment({ name, date }) {
+  const [year, month, day] = date.split("-");
+  const localDate = new Date(Number(year), Number(month) - 1, Number(day));
+  const entry = document.createElement("li");
+  entry.textContent = `${name} — Due: ${localDate.toLocaleDateString()}`;
 
-        assignments = assignments.filter(a => !(a.name === name && a.date === date));
-        localStorage.setItem("assignments", JSON.stringify(assignments));
-    });
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove";
+  removeBtn.style.marginLeft = "10px";
 
-    entry.appendChild(removeBtn);
-    list.appendChild(entry);
+  removeBtn.addEventListener("click", () => {
+  entry.remove();
+  assignments = assignments.filter(
+  (a) => !(a.name === name && a.date === date)
+    );
+  localStorage.setItem("assignments", JSON.stringify(assignments));
+  makeCalendar(today.getFullYear(), today.getMonth(), assignments);
+  });
 
+  entry.appendChild(removeBtn);
+  list.appendChild(entry);
 }
 
 
@@ -80,12 +84,14 @@ function makeCalendar(year, month, assignments) {
     const names = [];
 
     for (let j = 0; j < assignments.length; j++) {
-      const aDate = new Date(assignments[j].date).toLocaleDateString();
-      if (aDate === cellDate) {
-        hasAssignment = true;
-        names.push(assignments[j].name);
-      }
-    }
+    const [y, m, d] = assignments[j].date.split("-");
+    const localDate = new Date(Number(y), Number(m) - 1, Number(d)).toLocaleDateString();
+    if (localDate === cellDate) {
+    hasAssignment = true;
+    names.push(assignments[j].name);
+  }
+}
+
 
     if (hasAssignment) {
       cell.style.backgroundColor = "#8ce2bd"; 
@@ -105,6 +111,7 @@ function makeCalendar(year, month, assignments) {
 
 const today = new Date();
 makeCalendar(today.getFullYear(), today.getMonth(), assignments);
+
 
 
 
