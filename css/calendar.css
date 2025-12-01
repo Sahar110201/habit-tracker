@@ -1,27 +1,49 @@
 :root {
     --color-background-primary: #ececec;
-    --color-surface-card: #f5f5f5;
-    --color-border-subtle: #e0e0e0;
-    --color-text-primary: #333333;
-    --color-text-secondary: #777777;
-    --color-accent: #357686;
-    --border-radius-section: 12px;
+    --header-footer: #73b0c6;
+    --color-task-list: #fff9f1;
+    --color-task-manager-section: #d6f0f8;
+    --color-toggle-btn: #ececec;
+    --color-all-btn-hover: #357686;
+    --color-add-task-btn: #9ABFCD;
+    --color-complete-btn: #aad3e1;
+    --color-edit-btn: #9ABFCD;
+    --color-delete-btn: #78a4b4;
+    --color-border-subtle: #332B34;
+    --color-text-hover: #ececec;
+    --color-text-primary: #332B34;
+}
+
+@font-face {
+    font-family: Schoolbell;
+    src: url(../assets/fonts/Schoolbell-Regular.ttf);
+}
+
+@font-face {
+    font-family: ComingSoon;
+    src: url(../assets/fonts/ComingSoon-Regular.ttf);
 }
 
 body.dark-mode {
-    --color-background-primary: #1a1a1a;
-    --color-surface-card: #222222;
-    --color-border-subtle: #333333;
-    --color-text-primary: #e0e0e0;
-    --color-text-secondary: #a0a0a0;
-    --color-accent: #3aa1bf; 
+    --color-background-primary: #04042b;
+    --header-footer: #232339;
+    --color-task-list: #04042b;
+    --color-task-manager-section: #353553;
+    --color-toggle-btn: #1b1754;
+    --color-all-btn-hover: #2d83bb;
+    --color-add-task-btn: #1b1754;
+    --color-complete-btn: #3f3a87;
+    --color-edit-btn: #34306c;
+    --color-delete-btn: #23204c;
+    --color-border-subtle: #7aa7c5;
+    --color-text-hover: #6a5fff;
+    --color-text-primary: #dbdada;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: all 0.3s ease-in-out; 
 }
 
 html {
@@ -29,15 +51,14 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: ComingSoon, cursive;
     background-color: var(--color-background-primary);
     color: var(--color-text-primary);
     line-height: 1.6;
 }
 
 header {
-    background-color: var(--color-surface-card);
-    border-bottom: 1px solid var(--color-border-subtle);
+    background-color: var(--header-footer);
     padding: 20px 80px;
     position: fixed;
     top: 0;
@@ -59,7 +80,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex: 1;
-    display: flex; 
+    display: flex;
 }
 
 nav ul {
@@ -73,15 +94,33 @@ nav a {
     text-decoration: none;
     color: var(--color-text-primary);
     padding: 5px 10px;
+    transition: ease 0.7s;
 }
 
 nav a:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
+    color: var(--color-text-hover);
 }
 
 #dark-mode-btn {
     justify-self: end;
+    color: var(--color-text-primary);
+    background-color: var(--color-toggle-btn);
+    box-shadow: 5px 5px 10px rgb(76, 76, 76);
+    transition: ease-in-out 1s;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: ComingSoon;
+}
+
+#dark-mode-btn:hover {
+    justify-self: end;
+    background-color: var(--color-all-btn-hover);
+    color: var(--color-text-hover);
+    transition: ease-in-out 1s;
+    box-shadow: none;
 }
 
 main {
@@ -91,14 +130,16 @@ main {
 }
 
 section {
-    background-color: var(--color-surface-card);
+    background-color: var(--color-task-manager-section);
+    border: 1px solid var(--color-border-subtle);
     padding: 50px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     min-height: 500px;
-    border-radius: var(--border-radius-section);
+    border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, background-color 0.3s, box-shadow 0.3s;
 }
 
 section:hover {
@@ -109,22 +150,28 @@ h3 {
     border-bottom: 2px solid var(--color-border-subtle);
     padding-bottom: 10px;
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--color-text-primary);
+    font-family: Schoolbell;
+    text-align: center;
 }
 
 button {
-    background-color: var(--color-accent);
-    color: white;
+    background-color: var(--color-add-task-btn);
+    color: var(--color-text-primary);
     border: none;
-    padding: 8px 15px;
+    padding: 10px 15px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
+    transition: background-color 0.5s, transform 1s;;
+    font-family: ComingSoon;
 }
 
 button:hover {
-    opacity: 0.9;
+    background-color: var(--color-all-btn-hover);
+    color: var(--color-text-hover);
+    transform: translateY(-2px);
 }
 
 #task-manager input[type="text"],
@@ -163,88 +210,9 @@ button:hover {
     font-size: 0.8rem;
 }
 
-#timer-display {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-    background-color: var(--color-background-primary);
-    padding: 10px;
-    border-radius: 8px;
-}
-
-#timer-controls {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.timer-increments button {
-    background-color: var(--color-text-secondary);
-}
-
-.timer-increments button:hover {
-    background-color: #868686;
-}
-
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 180px;
-    perspective: 1000px;
-    margin: 20px auto;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-section);
-}
-
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: var(--border-radius-section);
-}
-
-.flip-card-front {
-    background-color: var(--color-accent);
-    color: white;
-    font-weight: bold;
-}
-
-.flip-card-back {
-    background-color: var(--color-accent);
-    color: var(--color-text-primary);
-    transform: rotateY(180deg);
-}
-
-#generate-quote-btn {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-}
-
 #calendar-widget {
     min-height: 150px;
-    padding: 10px;
+    padding: 0px;
     background-color: var(--color-background-primary);
     border-radius: 6px;
     margin-bottom: 20px;
@@ -257,10 +225,10 @@ footer {
     bottom: 0;
     left: 0;
     padding: 40px;
-    border-top: 1px solid var(--color-border-subtle);
-    color: var(--color-text-secondary);
+    margin-top: 30px;
+    color: var(--color-text-primary);
     font-size: 0.9rem;
-    background-color: var(--color-surface-card);
+    background-color: var(--header-footer);
 }
 
 /* Responsive */
@@ -314,13 +282,63 @@ footer {
 }
 
 #calendar-table {
- 
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
 }
 
 #calendar-table th {
-  
+    background: var(--header-footer);
+    color: var(--color-text-primary);
+    padding: 8px 0;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border-subtle);
+    text-align: center;
 }
 
 #calendar-table td {
-  
+    background: var(--color-task-list);
+    color: var(--color-text-primary);
+    padding: 10px 0;
+    font-size: 0.9rem;
+    text-align: center;
+    border: 1px solid var(--color-border-subtle);
+    width: calc(100% / 7);
+    height: 45px;
+}
+
+/* DARK MODE OVERRIDES */
+body.dark-mode {
+    background-color: var(--color-background-primary);
+}
+
+body.dark-mode #logoimage {
+    width: 45%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: var(--header-footer);
+    color: var(--color-text-primary);
+}
+
+body.dark-mode nav a {
+    color: var(--color-text-primary);
+}
+
+body.dark-mode nav a:hover {
+    color: var(--color-text-hover);
+}
+
+body.dark-mode #dark-mode-btn {
+    background-color: var(--color-toggle-btn);
+    box-shadow: none;
+}
+
+body.dark-mode #dark-mode-btn:hover {
+    background-color: var(--color-all-btn-hover);
+    color: var(--color-text-primary);
+    box-shadow: 0 0 15px white;
 }
