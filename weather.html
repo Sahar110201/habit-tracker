@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/weather.css">
-    <title>group project draft</title>
+    <title>Habit Tracker</title>
 </head>
+
 <body>
-    
+
     <header>
-    <a id="logo" href="index.html"> <img id="logoimage" src="assets/images/logo.png" alt="Logo"></a>
+        <a id="logo" href="index.html"> <img id="logoimage" src="assets/images/logo.png" alt="Logo"></a>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Task Manager</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="timer.html">Timer</a></li>
-            <li><a href="weather.html">Weather</a></li>
-            <li><a href="motivation.html">Motivation</a></li>
-        
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Task Manager</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="timer.html">Timer</a></li>
+                <li><a href="weather.html">Weather</a></li>
+                <li><a href="motivation.html">Motivation</a></li>
 
-    <button id="dark-mode-btn">Toggle Dark Mode</button>
+            </ul>
+        </nav>
+
+        <button id="dark-mode-btn">Toggle Dark Mode</button>
 
     </header>
 
     <main>
-    <section id="weather">
-        <h3>Current Date & Weather</h3>
+        <section id="weather">
+            <h3>Current Date & Weather</h3>
 
-        <div id="greeting-area">
-            <p id="greeting">Good [Time of Day], Student!</p>
-            <p id="datetime-display">Today is</p>
-        </div>
+            <div id="greeting-area">
+                <p id="greeting">Good [Time of Day], Student!</p>
+                <p id="datetime-display">Today is [Sunny]</p>
+            </div>
 
-        <div id="current-weather-display">
-            <p>Location: <span id="location-name">City, Country</span></p>
-            <p>Temperature: <span id="current-temp">--°C</span></p>
-            <p>Condition: <span id="current-condition">Clear skies</span></p>
-        </div>
-            
-    </section>
+            <div class="weather-widget">
+                <div data-key="Horizontal Weather " class="ft" id="ftqut3lpv">
+                </div>
+                <script src="https://wdg.fouita.com/widgets/0x362687.js"></script>
+            </div>
+
+        </section>
     </main>
 
     <footer>CPAN 113 Group 2</footer>
 
-    <script src="script.js"></script>
+    <script>
+        if (!document.querySelector('#ftqut3lpv')) {
+            var newDiv = document.createElement('div');
+            newDiv.setAttribute('key', 'Horizontal Weather ');
+            newDiv.setAttribute('class', 'ft');
+            newDiv.setAttribute('id', 'ftqut3lpv');
+            var newScript = document.createElement('script');
+            newScript.setAttribute('src', 'https://wdg.fouita.com/widgets/0x362687.js');
+            newDiv.appendChild(newScript);
+
+            document.body.appendChild(newDiv);
+        }
+    </script>
+
+    <script src="js/weather.js"></script>
     <script src="js/dark mode.js"></script>
 
 </body>
+
 </html>
