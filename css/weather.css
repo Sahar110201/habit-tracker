@@ -10,12 +10,19 @@
 
 /* DARK MODE VARIABLES */
 body.dark-mode {
-    --color-background-primary: #121212;
-    --color-surface-card: #1e1e1e;
-    --color-border-subtle: #333333;
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #aaaaaa;
-    --color-accent: #3aa1bf;
+    --color-background-primary: #302b2b;
+    --header-footer: #73b0c6;
+    --color-task-list: #fff9f1;
+    --color-task-manager-section: #d6f0f8;
+    --color-toggle-btn: #ececec;
+    --color-all-btn-hover: #357686;
+    --color-add-task-btn: #9ABFCD;
+    --color-complete-btn: #aad3e1;
+    --color-edit-btn: #9ABFCD;
+    --color-delete-btn: #78a4b4;
+    --color-border-subtle: #332B34;
+    --color-text-hover: #ececec;
+    --color-text-primary: #332B34;
 }
 
 * {
@@ -229,4 +236,60 @@ footer {
         min-width: 100px;
         height: 38px;
     }
+}
+
+/* DARK MODE OVERRIDES */
+body.dark-mode {
+    background-color: var(--color-background-primary);
+    color: #e0e0e0;
+}
+
+body.dark-mode #logoimage {
+    width: 45%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode section,
+body.dark-mode #task-list,
+body.dark-mode #task-manager input[type="text"] {
+    background-color: #222222;
+    color: #e0e0e0;
+    border-color: #555555;
+}
+
+body.dark-mode nav a,
+body.dark-mode #dark-mode-btn,
+body.dark-mode button,
+body.dark-mode .complete-btn,
+body.dark-mode .edit-btn,
+body.dark-mode .delete-btn,
+body.dark-mode #add-task-btn {
+    color: #e0e0e0;
+}
+
+body.dark-mode #dark-mode-btn {
+    background-color: #444444;
+}
+
+body.dark-mode #dark-mode-btn:hover,
+body.dark-mode button:hover,
+body.dark-mode .complete-btn:hover,
+body.dark-mode .edit-btn:hover,
+body.dark-mode .delete-btn:hover,
+body.dark-mode #add-task-btn:hover {
+    background-color: #3aa1bf;
+    color: #ffffff;
+}
+
+body.dark-mode .task-item {
+    border-bottom: 1px solid #555555;
+}
+
+body.dark-mode #task-manager input[type="text"] {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: inset 0 0 4px #000000;
 }
