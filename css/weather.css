@@ -13,15 +13,15 @@
 
 /* DARK MODE VARIABLES */
 body.dark-mode {
-    --color-background-primary: #1dfc00;
-    --header-footer: #008ffc;
-    --color-toggle-btn: #f8fc00;
-    --color-toggle-btn-hover: #63825f;
-    --color-surface-card: #7c1288;
-    --color-border-subtle: #06829b;
-    --color-text-hover: #a21616;
-    --color-text-primary: #841337;
-    --color-text-secondary: #abffa0;
+    --color-background-primary: #04042b;
+    --header-footer: #232339;
+    --color-toggle-btn: #1b1754;
+    --color-toggle-btn-hover: #2d83bb;
+    --color-surface-card: #353553;
+    --color-border-subtle: #7aa7c5;
+    --color-text-hover: #6a5fff;
+    --color-text-primary: #dbdada;
+    --color-text-secondary: #dbdada;
 }
 
 @font-face {
@@ -152,47 +152,55 @@ h3 {
 
 /* Weekly forecast widget styles */
 .weekly-forecast {
-    margin-top: 24px;
+    margin-top: 20px;
 }
+
 .current-date {
     text-align: center;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-top: 20px;
     font-size: 1rem;
     color: var(--color-text-primary);
 }
+
 .date-text {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
     margin-top: 4px;
 }
+
 .forecast-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 12px;
     align-items: stretch;
 }
+
 .forecast-day {
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
-    padding: 10px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     min-height: 110px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
+
 .forecast-day .day-name {
     font-weight: 700;
     margin-bottom: 6px;
 }
+
 .weather-icon {
-    font-size: 28px; /* emoji */
+    font-size: 28px;
+    /* emoji */
     line-height: 1;
     margin: 6px 0;
 }
+
 .temp-range {
     font-weight: 600;
 }
@@ -261,8 +269,10 @@ footer {
 
 /* DARK MODE */
 body.dark-mode header,
-body.dark-mode nav,
-body.dark-mode footer,
+body.dark-mode footer{
+    background-color: var(--header-footer);
+}
+
 body.dark-mode section,
 body.dark-mode button {
     background-color: var(--color-surface-card);
@@ -277,18 +287,18 @@ body.dark-mode #logoimage {
 }
 
 body.dark-mode #dark-mode-btn {
-    background-color: red;
+    background-color: var(--color-toggle-btn);
     box-shadow: none;
 }
 
 body.dark-mode #dark-mode-btn:hover {
-    background-color: blue;
+    background-color: var(--color-toggle-btn-hover);
     color: var(--color-text-primary);
     box-shadow: 0 0 15px white;
 }
 
 body.dark-mode .forecast-day {
-    background: rgba(0,0,0,0.35);
+    background: rgba(0, 0, 0, 0.35);
     color: var(--color-text-secondary);
-    border-color: rgba(255,255,255,0.06);
+    border-color: rgba(255, 255, 255, 0.06);
 }

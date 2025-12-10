@@ -37,7 +37,7 @@ body.dark-mode {
     --color-edit-btn: #34306c;
     --color-delete-btn: #23204c;
     --color-border-subtle: #7aa7c5;
-    --color-text-hover: #6a5fff;
+    --color-text-hover: #ffffff;
     --color-text-primary: #dbdada;
     --color-marked-date: #5a7f8f;
 }
@@ -354,6 +354,6 @@ body.dark-mode #dark-mode-btn {
 
 body.dark-mode #dark-mode-btn:hover {
     background-color: var(--color-all-btn-hover);
-    color: var(--color-text-primary);
+    color: var(--color-text-hover);
     box-shadow: 0 0 15px white;
 }
