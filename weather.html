@@ -31,36 +31,17 @@
     <main>
         <section id="weather">
             <h3>Current Date & Weather</h3>
-
-            <div id="greeting-area">
-                <p id="greeting">Good [Time of Day], Student!</p>
-                <p id="datetime-display">Today is [Sunny]</p>
-            </div>
-
+            
             <div class="weather-widget">
-                <div data-key="Horizontal Weather " class="ft" id="ftqut3lpv">
-                </div>
-                <script src="https://wdg.fouita.com/widgets/0x362687.js"></script>
+                <div id="current-date" class="current-date" aria-hidden="false"></div>
+
+                <div id="weekly-forecast" class="weekly-forecast" aria-label="7 day weather forecast"></div>
             </div>
 
         </section>
     </main>
 
     <footer>CPAN 113 Group 2</footer>
-
-    <script>
-        if (!document.querySelector('#ftqut3lpv')) {
-            var newDiv = document.createElement('div');
-            newDiv.setAttribute('key', 'Horizontal Weather ');
-            newDiv.setAttribute('class', 'ft');
-            newDiv.setAttribute('id', 'ftqut3lpv');
-            var newScript = document.createElement('script');
-            newScript.setAttribute('src', 'https://wdg.fouita.com/widgets/0x362687.js');
-            newDiv.appendChild(newScript);
-
-            document.body.appendChild(newDiv);
-        }
-    </script>
 
     <script src="js/weather.js"></script>
     <script src="js/dark mode.js"></script>
