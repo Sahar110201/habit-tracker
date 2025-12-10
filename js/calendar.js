@@ -94,8 +94,9 @@ function makeCalendar(year, month, assignments) {
 
 
     if (hasAssignment) {
-      cell.style.backgroundColor = "#8ce2bd"; 
+      cell.style.backgroundColor = "var(--color-marked-date)"; 
       cell.title = names.join(", ");
+      cell.classList.add("marked-date");
     }
 
     row.appendChild(cell);

@@ -12,6 +12,7 @@
     --color-border-subtle: #332B34;
     --color-text-hover: #ececec;
     --color-text-primary: #332B34;
+    --color-marked-date: #dbfffdff;
 }
 
 @font-face {
@@ -38,6 +39,7 @@ body.dark-mode {
     --color-border-subtle: #7aa7c5;
     --color-text-hover: #6a5fff;
     --color-text-primary: #dbdada;
+    --color-marked-date: #5a7f8f;
 }
 
 * {
@@ -270,15 +272,6 @@ footer {
         padding: 18px;
     }
 
-    .task-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
-
-    #timer-display {
-        font-size: 2.5rem;
-    }
 }
 
 #calendar-table {
@@ -305,6 +298,28 @@ footer {
     border: 1px solid var(--color-border-subtle);
     width: calc(100% / 7);
     height: 45px;
+}
+
+#assignment-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#assignment-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+#assignment-list button{
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 10%;
+    flex-shrink: 0;
 }
 
 /* DARK MODE OVERRIDES */
