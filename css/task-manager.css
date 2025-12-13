@@ -293,6 +293,73 @@ footer {
     background-color: var(--header-footer);
 }
 
+@media (max-width: 1100px) {
+    header {
+        padding: 16px 32px;
+        grid-template-columns: 1fr auto;
+        column-gap: 16px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    main {
+        padding: 130px 16px 120px;
+    }
+
+    section {
+        padding: 32px;
+    }
+
+    #logoimage {
+        width: 38%;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .task-input-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #task-manager input[type="text"] {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    #add-task-btn {
+        width: 100%;
+    }
+
+    .task-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .task-description {
+        width: 100%;
+    }
+
+    main {
+        padding: 120px 16px 120px;
+    }
+
+    section {
+        padding: 26px;
+    }
+}
+
 @media (max-width: 700px) {
 
     header {
@@ -420,7 +487,6 @@ body.dark-mode #add-task-btn:hover {
 body.dark-mode .task-item {
     border-bottom: 1px solid var(--color-border-subtle);
 }
-
 
 
 
