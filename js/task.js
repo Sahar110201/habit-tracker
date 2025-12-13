@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const addTaskBtn = document.getElementById("add-task-btn");
     addTaskBtn.addEventListener("click", addTask);
+
+    const clearAllBtn = document.getElementById("clear-all-btn");
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener("click", clearAllTasks);
+    }
 });
 
 
@@ -25,6 +30,7 @@ function addTask() {
 
     saveTask(task);
     displayTask(task);
+    updateSaveStatus();
 
     taskInput.value = "";
 }
@@ -80,6 +86,7 @@ function editTask(id) {
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
     refreshTaskList();
+    updateSaveStatus();
 }
 
 
@@ -91,6 +98,7 @@ function deleteTask(id) {
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
     refreshTaskList();
+    updateSaveStatus();
 }
 
 
@@ -110,6 +118,7 @@ function saveTask(task) {
 function loadTasks() {
     const tasks = getSavedTasks();
     tasks.forEach(task => displayTask(task));
+    updateSaveStatus();
 }
 
 
@@ -127,4 +136,21 @@ function getSavedTasks() {
 function refreshTaskList() {
     document.getElementById("task-list").innerHTML = "";
     loadTasks();
+}
+
+function clearAllTasks() {
+    localStorage.removeItem("tasks");
+    refreshTaskList();
+    updateSaveStatus("No tasks saved");
+}
+
+function updateSaveStatus(message) {
+    const el = document.getElementById("task-save-status");
+    if (!el) return;
+    if (message) {
+        el.textContent = message;
+        return;
+    }
+    const hasTasks = (getSavedTasks().length > 0);
+    el.textContent = hasTasks ? "Saved locally" : "No tasks saved";
 }
