@@ -301,6 +301,30 @@ footer {
     background-color: var(--header-footer);
 }
 
+@media (max-width: 1100px) {
+    header {
+        padding: 16px 32px;
+        grid-template-columns: 1fr auto;
+        column-gap: 16px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    main {
+        padding: 130px 16px 120px;
+    }
+
+    section {
+        padding: 32px;
+    }
+
+    #logoimage {
+        width: 38%;
+    }
+}
+
 @media (max-width: 700px) {
 
     header {
@@ -327,14 +351,11 @@ footer {
         width: auto;
     }
 
-    body {
-        padding-top: 160px;
-    }
-
 
     main {
-        padding: 20px;
-        padding-top: 200px;
+        padding: 16px;
+        padding-top: 230px;
+        padding-bottom: 230px;
     }
 
     section {
@@ -349,6 +370,118 @@ footer {
 
     #timer-display {
         font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 24px;
+    }
+
+    #logoimage {
+        width: 44%;
+    }
+
+    nav {
+        flex: 1;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 1rem;
+        padding: 6px 6px;
+        white-space: nowrap;
+    }
+
+    nav li:nth-child(3)::after {
+        content: none;
+    }
+
+    #dark-mode-btn {
+        align-self: center;
+        margin-top: 0;
+    }
+
+    main {
+        padding: 220px 16px 140px;
+    }
+
+    footer {
+        padding: 18px;
+    }
+
+    .timer-container {
+        gap: 10px;
+    }
+
+    .flip-card {
+        width: 96px;
+        height: 128px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        font-size: 3rem;
+    }
+
+    .flip-separator {
+        font-size: 2.5rem;
+        margin: 0 6px;
+    }
+
+    section {
+        padding: 26px;
+    }
+
+    main {
+        padding: 120px 16px 120px;
+    }
+}
+
+@media (max-width: 600px) {
+    .timer-container {
+        flex-direction: column;
+    }
+
+    .flip-card {
+        width: 82px;
+        height: 110px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        font-size: 2.4rem;
+    }
+
+    .timer-controls,
+    .timer-increments {
+        gap: 10px;
+    }
+
+    .timer-controls button,
+    .timer-increments button {
+        width: 100%;
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 16px;
+        padding-top: 190px;
+        padding-bottom: 190px;
+    }
+
+    footer {
+        padding: 18px;
     }
 }
 
