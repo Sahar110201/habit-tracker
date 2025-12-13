@@ -12,6 +12,9 @@ let secondsFlip = document.getElementById('seconds-flip');
 let totalSeconds = 0;
 let timerInterval = null;
 let flipRunning = false;
+const TIMER_STORAGE_KEY = 'timerSeconds';
+const TIMER_TIMESTAMP_KEY = 'timerSavedAt';
+const TIMER_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 
 // 🔊 Alarm sound (ensure file exists at this path)
 const alarmSound = new Audio("assets/images/alarm-301729.mp3");
@@ -38,6 +41,34 @@ function updateDisplay() {
 
     minutesFlip.querySelector('.flip-card-front').textContent = minutesStr;
     secondsFlip.querySelector('.flip-card-front').textContent = secondsStr;
+    persistTimerState();
+}
+function loadTimerState() {
+    const saved = parseInt(localStorage.getItem(TIMER_STORAGE_KEY), 10);
+    const savedAt = parseInt(localStorage.getItem(TIMER_TIMESTAMP_KEY), 10);
+    const now = Date.now();
+    if (Number.isNaN(saved) || Number.isNaN(savedAt)) {
+        clearSavedTimer();
+        return;
+    }
+    if (saved <= 0 || (now - savedAt) > TIMER_MAX_AGE_MS) {
+        clearSavedTimer();
+        return;
+    }
+    totalSeconds = saved;
+}
+function persistTimerState() {
+    if (totalSeconds > 0) {
+        localStorage.setItem(TIMER_STORAGE_KEY, String(totalSeconds));
+        localStorage.setItem(TIMER_TIMESTAMP_KEY, String(Date.now()));
+    } else {
+        clearSavedTimer();
+    }
+}
+
+function clearSavedTimer() {
+    localStorage.removeItem(TIMER_STORAGE_KEY);
+    localStorage.removeItem(TIMER_TIMESTAMP_KEY);
 }
 
 // Start Timer
@@ -124,5 +155,5 @@ add20Btn.addEventListener('click', () => {
 });
 
 // Initialize display
+loadTimerState();
 updateDisplay();
-

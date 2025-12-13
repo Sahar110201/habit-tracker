@@ -246,6 +246,30 @@ footer {
     background-color: var(--header-footer);
 }
 
+@media (max-width: 1100px) {
+    header {
+        padding: 16px 32px;
+        grid-template-columns: 1fr auto;
+        column-gap: 16px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    main {
+        padding: 130px 16px 120px;
+    }
+
+    section {
+        padding: 32px;
+    }
+
+    #logoimage {
+        width: 38%;
+    }
+}
+
 @media (max-width: 700px) {
     header {
         display: flex;
@@ -271,13 +295,10 @@ footer {
         width: auto;
     }
 
-    body {
-        padding-top: 160px;
-    }
-
     main {
-        padding: 20px;
-        padding-top: 200px;
+        padding: 16px;
+        padding-top: 250px;
+        padding-bottom: 250px;
     }
 
     section {
@@ -292,6 +313,90 @@ footer {
 
     #timer-display {
         font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 24px;
+    }
+
+    #logoimage {
+        width: 44%;
+    }
+
+    nav {
+        flex: 1;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 1rem;
+        padding: 6px 6px;
+        white-space: nowrap;
+    }
+
+    nav li:nth-child(3)::after {
+        content: none;
+    }
+
+    #dark-mode-btn {
+        align-self: center;
+        margin-top: 0;
+    }
+
+    main {
+        padding: 220px 16px 140px;
+    }
+
+    footer {
+        padding: 18px;
+    }
+
+    #generate-quote-btn {
+        width: 60%;
+    }
+
+    .flip-card {
+        height: 240px;
+    }
+
+    main {
+        padding: 120px 16px 120px;
+    }
+
+    section {
+        padding: 26px;
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 16px;
+        padding-top: 190px;
+        padding-bottom: 190px;
+    }
+
+    footer {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .flip-card {
+        height: 190px;
+    }
+
+    #generate-quote-btn {
+        width: 100%;
     }
 }
 
