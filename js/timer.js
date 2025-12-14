@@ -143,10 +143,10 @@ pauseBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', resetTimer);
 
 // Time increment buttons (paused only)
-add1Btn.addEventListener('click', () => adjustTime(60));
-add5Btn.addEventListener('click', () => adjustTime(5 * 60));
-add10Btn.addEventListener('click', () => adjustTime(10 * 60));
-add20Btn.addEventListener('click', () => adjustTime(20 * 60));
+if (add1Btn) add1Btn.addEventListener('click', () => adjustTime(60));
+if (add5Btn) add5Btn.addEventListener('click', () => adjustTime(5 * 60));
+if (add10Btn) add10Btn.addEventListener('click', () => adjustTime(10 * 60));
+if (add20Btn) add20Btn.addEventListener('click', () => adjustTime(20 * 60));
 
 // Initialize display
 loadTimerState();
