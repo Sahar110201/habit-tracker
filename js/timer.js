@@ -2,6 +2,7 @@
 let startBtn = document.getElementById('start-btn');
 let pauseBtn = document.getElementById('pause-btn');
 let resetBtn = document.getElementById('reset-btn');
+let add1Btn = document.getElementById('add-1-btn');
 let add5Btn = document.getElementById('add-5-btn');
 let add10Btn = document.getElementById('add-10-btn');
 let add20Btn = document.getElementById('add-20-btn');
@@ -16,13 +17,11 @@ const TIMER_STORAGE_KEY = 'timerSeconds';
 const TIMER_TIMESTAMP_KEY = 'timerSavedAt';
 const TIMER_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 
-// 🔊 Alarm sound (ensure file exists at this path)
+// Alarm sound (ensure file exists at this path)
 const alarmSound = new Audio("assets/images/alarm-301729.mp3");
 alarmSound.preload = "auto";
 alarmSound.loop = false;
 
-
-// Helper function to animate flip
 function animateFlip(element, newValue) {
     element.classList.add('flipping');
     setTimeout(() => {
@@ -31,7 +30,6 @@ function animateFlip(element, newValue) {
     }, 300);
 }
 
-// Update display 
 function updateDisplay() {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
@@ -43,6 +41,7 @@ function updateDisplay() {
     secondsFlip.querySelector('.flip-card-front').textContent = secondsStr;
     persistTimerState();
 }
+
 function loadTimerState() {
     const saved = parseInt(localStorage.getItem(TIMER_STORAGE_KEY), 10);
     const savedAt = parseInt(localStorage.getItem(TIMER_TIMESTAMP_KEY), 10);
@@ -57,6 +56,7 @@ function loadTimerState() {
     }
     totalSeconds = saved;
 }
+
 function persistTimerState() {
     if (totalSeconds > 0) {
         localStorage.setItem(TIMER_STORAGE_KEY, String(totalSeconds));
@@ -71,12 +71,36 @@ function clearSavedTimer() {
     localStorage.removeItem(TIMER_TIMESTAMP_KEY);
 }
 
+function resetTimer() {
+    clearInterval(timerInterval);
+    flipRunning = false;
+    timerInterval = null;
+    totalSeconds = 0;
+    startBtn.disabled = false;
+
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+
+    updateDisplay();
+}
+
+function adjustTime(deltaSeconds) {
+    if (flipRunning) return;
+    const next = totalSeconds + deltaSeconds;
+    if (next <= 0) {
+        resetTimer();
+        return;
+    }
+    totalSeconds = next;
+    updateDisplay();
+}
+
 // Start Timer
 startBtn.addEventListener('click', () => {
     if (flipRunning) return;
 
     if (totalSeconds === 0) {
-        alert('Please set a time using the +5, +10, or +20 min buttons!');
+        alert('Please set a time using the +1, +5, +10, or +20 min buttons!');
         return;
     }
 
@@ -88,7 +112,6 @@ startBtn.addEventListener('click', () => {
             totalSeconds--;
             updateDisplay();
 
-            // Animate flip when second changes
             if (totalSeconds % 60 === 59) {
                 animateFlip(secondsFlip, (totalSeconds % 60).toString().padStart(2, '0'));
             }
@@ -103,7 +126,6 @@ startBtn.addEventListener('click', () => {
             flipRunning = false;
             startBtn.disabled = false;
             alarmSound.play().catch(err => console.log("Audio error:", err));
-
         }
     }, 1000);
 });
@@ -118,41 +140,13 @@ pauseBtn.addEventListener('click', () => {
 });
 
 // Reset
-resetBtn.addEventListener('click', () => {
-    clearInterval(timerInterval);
-    flipRunning = false;
-    timerInterval = null;
-    totalSeconds = 0;
-    startBtn.disabled = false;
+resetBtn.addEventListener('click', resetTimer);
 
-    // 🔥 Stop the alarm if it's still playing
-    alarmSound.pause();
-    alarmSound.currentTime = 0;
-
-    updateDisplay();
-});
-
-// Time increment buttons
-add5Btn.addEventListener('click', () => {
-    if (!flipRunning) {
-        totalSeconds = 5 * 60;
-        updateDisplay();
-    }
-});
-
-add10Btn.addEventListener('click', () => {
-    if (!flipRunning) {
-        totalSeconds = 10 * 60;
-        updateDisplay();
-    }
-});
-
-add20Btn.addEventListener('click', () => {
-    if (!flipRunning) {
-        totalSeconds = 20 * 60; 
-        updateDisplay();
-    }
-});
+// Time increment buttons (paused only)
+add1Btn.addEventListener('click', () => adjustTime(60));
+add5Btn.addEventListener('click', () => adjustTime(5 * 60));
+add10Btn.addEventListener('click', () => adjustTime(10 * 60));
+add20Btn.addEventListener('click', () => adjustTime(20 * 60));
 
 // Initialize display
 loadTimerState();
