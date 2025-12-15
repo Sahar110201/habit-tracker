@@ -28,7 +28,7 @@ By bringing these features together, the site empowers users to balance academic
 
 # Team Members and their contributions:
 
-Zlata - Front End Developer
+Zlata - Frontend Developer
 - Created Task Manager Design
 - Created Timer Design
 - Created Weather Design
@@ -40,8 +40,9 @@ Autumn - Frontend Developer
 
 Misha - JS Developer
 - Created a JS for Calendar HTML
-- Created generic calendar Grid for Calendar HTML
-- Fixed and provided troubleshooting any issues related to Calendar HTML
+- Created generic calendar grid for Calendar HTML
+- Fixed and provided troubleshooting for any issues related to Calendar JS
+- Created CSS portion for the Frontend Developers to edit the Calendar grid
 - Compiled a video for our Group Presentation 
 
 Jhemuel - JS Developer
@@ -50,13 +51,20 @@ Jhemuel - JS Developer
 - Created Dark Mode JS
 
 Sahar - Tester
+- Managed GitHub Branches
+- Created Habit Tracker Repo
+- Added any issues, labels and milestones
+- Created Project Board
+- Created 7 Branches and compiled 2 pull requests
+- Created JS for Motivation HTML
+- Tested timer and darkmode JS
 
 Tyler - Team Director 
 
 
 # Reflection 
 
-Here you'll find our personal relections on the final stage 
+Here you'll find our personal reflections on the final stage 
 
 [Reflection](https://drive.google.com/file/d/1HT-_ncOi7RxF3omCMl_vstU5dxOaiMgR/view?usp=sharing)
 
