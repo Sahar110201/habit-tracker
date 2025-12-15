@@ -12,3 +12,52 @@ Here is our detailed breakdown on our Habit Tracker:
 
 
 [![Watch the video](https://img.youtube.com/vi/NeL-obMhx2I/0.jpg)](https://www.youtube.com/watch?v=NeL-obMhx2I)
+
+# Purpose
+
+This website is designed to help students stay productive and organized in their every day lives. It combines essential tools into one easy-to-use platform
+
+- Stay on top of school due dates with a clear overview of assignments and deadlines.  
+- Check the weather at ease so you can plan your day without switching apps.  
+- Set study timers to manage your focus sessions and build healthy study habits.  
+- Use the task manager to track personal and academic tasks, ensuring you stay ahead of responsibilities.
+- To keep you inspired and moving forward, the website includes a Motivation Page that displays meaningful motivational quotes or messages.
+
+By bringing these features together, the site empowers users to balance academics, personal productivity, and daily planning—all in one place.
+
+
+# Team Members and their contributions:
+
+Zlata - Front End Developer
+- Created Task Manager Design
+- Created Timer Design
+- Created Weather Design
+- Created Logo Design for our website
+- Created colors for our Dark Mode Toggle
+- Created Weather JS for Weather HTML
+
+Autumn - Frontend Developer
+
+Misha - JS Developer
+- Created a JS for Calendar HTML
+- Created generic calendar Grid for Calendar HTML
+- Fixed and provided troubleshooting any issues related to Calendar HTML
+- Compiled a video for our Group Presentation 
+
+Jhemuel - JS Developer
+- Created JS for Timer
+- Created JS for Task Manager
+- Created Dark Mode JS
+
+Sahar - Tester
+
+Tyler - Team Director 
+
+
+# Reflection 
+
+Here you'll find our personal relections on the final stage 
+
+[Reflection](https://drive.google.com/file/d/1HT-_ncOi7RxF3omCMl_vstU5dxOaiMgR/view?usp=sharing)
+
+
