@@ -35,10 +35,12 @@ To access the website use this link: https://sahar110201.github.io/habit-tracker
 if you would like to download the webpage to Visual Studio:
 
 In the Repository:
+
 -Click Code
 -Select "Download Zip" 
 
 Using Visual Code Studio:
+
 -Extract the folder and open it in Visual Studio
 -Click Go Live
 -Run the Website
