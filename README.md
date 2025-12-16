@@ -85,6 +85,7 @@ Sahar - Tester
 Tyler - Team Director 
 - Provided updates to JS files to fix any related bugs 
 - Worked on css file to provide better responsivness of the webpage
+- Made an update to Motivational quotes to be limited to 1 per day based on individuals time zone
 
 # Reflection 
 
