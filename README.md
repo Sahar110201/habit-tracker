@@ -36,14 +36,14 @@ if you would like to download the webpage to Visual Studio:
 
 In the Repository:
 
--Click Code
--Select "Download Zip" 
+- Click Code
+- Select "Download Zip" 
 
 Using Visual Code Studio:
 
--Extract the folder and open it in Visual Studio
--Click Go Live
--Run the Website
+- Extract the folder and open it in Visual Studio
+- Click Go Live
+- Run the Website
 
 
 # Team Members and their contributions:
