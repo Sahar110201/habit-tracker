@@ -26,7 +26,7 @@ This website is designed to help students stay productive and organized in their
 By bringing these features together, the site empowers users to balance academics, personal productivity, and daily planning—all in one place.
 
 
-![every coder](./assets/images/Webpage-Picture.png)
+![WebPage Collage](./assets/images/Webpage-Picture.png)
 
 # Access the Website
 
