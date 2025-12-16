@@ -83,7 +83,8 @@ Sahar - Tester
 - Tested timer and darkmode JS
 
 Tyler - Team Director 
-
+- Provided updates to JS files to fix any related bugs 
+- Worked on css file to provide better responsivness of the webpage
 
 # Reflection 
 
