@@ -37,6 +37,9 @@ Zlata - Frontend Developer
 - Created Weather JS for Weather HTML
 
 Autumn - Frontend Developer
+- Created Initial HTML and CSS Designs
+- Created a design for calendar widget
+- Updated themes for Motivation and Calendat HTML
 
 Misha - JS Developer
 - Created a JS for Calendar HTML
